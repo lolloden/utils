@@ -10,8 +10,23 @@
    
 	$table = '';
 	if(isset($sdt['mydata']) && isset($sdt['columns']) && !empty($sdt['mydata']) && !empty($sdt['columns'])) {
-	  
-	  $t = new Table($sdt['mydata'], $sdt['columns'], $sdt['comp'], $sdt['tabClass'], $sdt['replace']);
+	  $comp = false;
+	  if(isset($sdt['comp']) && !empty($sdt['comp'])) {
+	    $comp = $sdt['comp'];
+	  }
+	  $tabClass = DEF_TABLE_CLASS;
+	  if(isset($sdt['tabClass']) && !empty($sdt['tabClass'])) {
+	    $tabClass = $sdt['tabClass'];
+	  }
+	  $padding = DEF_CELL_PADDING;
+	  if(isset($sdt['padding']) && !empty($sdt['padding'])) {
+	    $padding = $sdt['padding'];
+	  }
+	  $replacer = REPLACER;
+	  if(isset($sdt['replacer']) && !empty($sdt['replacer'])) {
+	    $replacer = $sdt['replacer'];
+	  }
+	  $t = new Table($sdt['mydata'], $sdt['columns'], $comp, $tabClass, $padding, $replacer);
 	  $table = $t->buildTable();
 	}
 	
@@ -68,9 +83,25 @@
       <h1 class="my-4">Result
       </h1>
      <div class="row">
-	    <?php echo $table; ?>
+	    <?php 
+	       if($table != '') {
+	         echo '<div class="jumbotron jumbotron-fluid">
+				      <div class="container">
+				      <h5>Copy this text:</h5>
+				      <p>' . htmlentities($table) . '</p>
+				      </div>
+				      </div>';
+	       }
+	    ?>
      </div>
-    
+     <h1 class="my-4">Preview
+      </h1>
+      <div class="row">
+        <?php 
+	       echo $table . '<br />
+				      <button type="button" class="btn btn-primary" onclick="javascript:history.back();">Back</button>';
+	     ?>
+      </div>
     <hr>
     </div>
     <!-- /.container -->

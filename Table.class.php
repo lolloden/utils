@@ -11,7 +11,7 @@
 		private $mystring, $cols, $padd, $repl, $comp, $cssClass;
 		
 	
-		public function __construct($_mystring, $_cols, $_comp = false, $_cssClass = 'table', $_padd = '5', $_repl = '*') {
+		public function __construct($_mystring, $_cols, $_comp = false, $_cssClass = DEF_TABLE_CLASS, $_padd = DEF_CELL_PADDING, $_repl = REPLACER) {
 		  $this->mystring = $_mystring;
 		  $this->cols = $_cols;
 		  $this->padd = $_padd;
@@ -31,7 +31,7 @@
 			    $pieces[] = $this->repl;
 			  }
 			}
-			$html = '<table class="' . $this->cssClass . '" cellpadding="' . $this->padd . '" border="2">
+			$html = '<table class="' . $this->cssClass . '" cellpadding="' . $this->padd . '">
 			          <thead>
 			           <tr>';
 			
