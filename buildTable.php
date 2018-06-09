@@ -1,4 +1,10 @@
 <?php
+
+	require_once('Table.class.php');
+	$table = '';
+	if(isset($_POST['mydata']) && isset($_POST['columns'])) {
+	  
+	}
 	
 ?>
 
