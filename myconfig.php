@@ -9,7 +9,7 @@
       define('DFORMAT', "Y-m-d H:i:s");
       define('SITE_DEBUG', true);
       define('DEF_CELL_PADDING', '5');
-      define('DEF_TABLE_CLASS', 'table');
+      define('DEF_TABLE_CLASS', 'table table-dark');
       define('REPLACER', '*');
      
       class myco {

@@ -1,35 +1,12 @@
 <?php
 	define('_UTILS', true);
-	require_once('Table.class.php');
+	require_once('Btc.class.php');
    require_once("classGump.php");
    
    // initialize
 	$gu = new GUMP('en');
-   $main = new Main($gu);
-   $sdt = $main->dataControl();
+   $btc = new Btc($gu);
    
-	$table = '';
-	if(isset($sdt['mydata']) && isset($sdt['columns']) && !empty($sdt['mydata']) && !empty($sdt['columns'])) {
-	  $comp = false;
-	  if(isset($sdt['comp']) && !empty($sdt['comp'])) {
-	    $comp = $sdt['comp'];
-	  }
-	  $tabClass = DEF_TABLE_CLASS;
-	  if(isset($sdt['tabClass']) && !empty($sdt['tabClass'])) {
-	    $tabClass = $sdt['tabClass'];
-	  }
-	  $padding = DEF_CELL_PADDING;
-	  if(isset($sdt['padding']) && !empty($sdt['padding'])) {
-	    $padding = $sdt['padding'];
-	  }
-	  $replacer = REPLACER;
-	  if(isset($sdt['replacer']) && !empty($sdt['replacer'])) {
-	    $replacer = $sdt['replacer'];
-	  }
-	  $t = new Table($sdt['mydata'], $sdt['columns'], $comp, $tabClass, $padding, $replacer);
-	  $table = $t->buildTable();
-	}
-	
 ?>
 
 <!DOCTYPE html>
@@ -68,7 +45,7 @@
               </a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="table.php">Table generator</a>
+              <a class="nav-link" href="table.php">BTC to Euro and satoshi</a>
               <span class="sr-only">(current)</span>
             </li>
           </ul>
@@ -80,35 +57,46 @@
     <div class="container">
 
       <!-- Page Heading -->
-      <h1 class="my-4">Result
+      <h1 class="my-4">BTC to Euro and satoshi
       </h1>
      <div class="row">
-	    <?php 
-	       if($table != '') {
-	         echo '<div class="jumbotron jumbotron-fluid">
-				      <div class="container">
-				      <h5>Copy this text:</h5>
-				      <p>' . htmlentities($table) . '</p>
-				      </div>
-				      </div>';
-	       }
-	    ?>
-     </div>
-     <h1 class="my-4">Preview
-      </h1>
-      <div class="row">
-        <?php 
-	       echo $table . '<br />
-				      <button type="button" class="btn btn-primary" onclick="javascript:history.back();">Back</button>';
-	     ?>
-      </div>
+	    <div class="col-md-2"></div>
+	       <div class="col-md-8">
+		     <div class="container-fluid" style="padding: 60px 0 150px 0;">
+               <div class="alert alert-success" role="alert" style="margin: 40px 0;">
+					  <?php echo '1 bitcoin = € <b>' . $_SESSION['rate'] . '</b> EUR (source: Bitpay on ' . $btc->mytime . ')'; ?>
+					</div>
+               <form>
+					  <div class="form-row">
+					    <div class="col">
+					      <label for="btc">Convert BTC to euro/satoshi</label>
+                     <input maxlength="10" type="number" name="btc" id="btc" min="0" placeholder="eg. 0.01234">
+                     <input type="hidden" id="valore" value="<?php echo $_SESSION['rate']; ?>">
+					    </div>
+					  </div>
+					</form>
+					<table class="alfa">
+					  <tr>
+					  <td><b>euro: </b></td>
+					  <td id="res2" style="color: red;">&nbsp;</td>
+					  </tr>
+					  <tr>
+					  <td><b>satoshi: </b></td>
+					  <td id="res" style="color: red;"></td>
+					  </tr>
+					</table>
+            </div>
+		    </div>
+	   <div class="col-md-2"></div>
+    </div>
+    
     <hr>
     <div class="row" style="margin: 0 0 50px 20px;">
     <div class="fb-like" data-href="http://functions.tradepost.it/index.php" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
-    </div>
+    </div> 
     </div>
     <!-- /.container -->
-
+      
     <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
@@ -120,6 +108,7 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+     <script src="https://rawgit.com/dawsonbotsford/satoshi-bitcoin/master/index.bundle.js"></script>
     <script src="my.js"></script>
   </body>
 

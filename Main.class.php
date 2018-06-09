@@ -27,6 +27,26 @@
 
 	   }
 	   
+	   protected function time_to_check() {
+	      if(!isset($_SESSION['last_check'])) {
+	          $this->update_last_check();
+	         return true;
+	      } else {
+			    $d1 = DateTime::createFromFormat("Y-m-d H:i:s", $this->mytime);
+	          $d2 = DateTime::createFromFormat("Y-m-d H:i:s", $_SESSION['last_check']);
+			    $d2->add(new DateInterval('PT5M'));
+			    //$d2->add(new DateInterval('PT3H')); 
+	          if($d2 < $d1) {
+	            return true;
+	          }
+	          return false;
+	        }
+	   }
+	   
+	   protected function update_last_check() {
+		  $_SESSION['last_check'] = $this->mytime;
+	   }
+	   
 	   public function dataControl() {
 	   	$val_rules = array();
       	$val_filters = array();

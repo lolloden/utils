@@ -71,13 +71,13 @@
 				 
 			    <div class="form-group">
 			    <label for="exampleTextarea">Table data *</label>
-			    <p>( read the<a href="#" style="" id="guide1"> instructions</a> or load an <a href="#" style="" id="example1"> example </a>)</p>
+			    <p>( read the<a href="#" class="njmp" id="guide1"> instructions</a> or load an <a href="#" class="njmp" id="example1"> example </a>)</p>
 			    <textarea rows="10" cols="50" name="mydata" class="form-control" id="mydata" rows="3" required></textarea>
 			    </div>
 			    
 			    <div class="form-group">
-				  <label for="tabClass" class="col-2 col-form-label">Table class</label>
-				  <input class="form-control" type="text" name="tabClass" id="tabClass" placeholder="table">
+				  <label for="tabClass" class="col-2 col-form-label">Style class</label>
+				  <input class="form-control" type="text" name="tabClass" id="tabClass" placeholder="table table-dark">
 				 </div>
 				 
 				 <div class="form-group">
@@ -86,15 +86,16 @@
 				 </div>
 				 
 				 <div class="form-group">
-				  <label for="replace" class="col-2 col-form-label">Replacer</label>
-				  <a href="#" style="" id="replacer"><img src="qm.png" alt="?"></a>
-				  <input class="form-control" type="text" name="replace" id="replace" placeholder="*">
-				 </div>
+				    <label class="col-form-label">
+				    Replacer&nbsp;<a href="#" class="njmp" id="repl"><img src="qm.png" alt="?"></a>
+				      <input class="form-control" type="text" name="replacer" id="replacer" placeholder="*">
+				    </label>
+				  </div>
 				 
 			    <div class="form-check">
 				    <label class="form-check-label">
 				      <input type="checkbox" name="comp" id="comp" value="1" class="form-check-input">
-				      First cell empty&nbsp;<a href="#" style="" id="comparative"><img src="qm.png" alt="?"></a>
+				      First cell empty&nbsp;<a href="#" class="njmp" id="comparative"><img src="qm.png" alt="?"></a>
 				    </label>
 				  </div>
 				  <br />
@@ -105,6 +106,9 @@
     </div>
     
     <hr>
+    <div class="row" style="margin: 0 0 50px 20px;">
+    <div class="fb-like" data-href="http://functions.tradepost.it/index.php" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+    </div>
     </div>
     <!-- /.container -->
 

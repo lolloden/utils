@@ -49,8 +49,8 @@
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">choose</a>
 				    <div class="dropdown-menu">
 				      <a class="dropdown-item" href="table.php">Table generator</a>
-				      <!-- a class="dropdown-item" href="#">Another action</a>
-				      <a class="dropdown-item" href="#">Something else here</a>
+				      <a class="dropdown-item" href="btc.php">BTC to Euro and satoshi</a>
+				      <!-- a class="dropdown-item" href="#">Something else here</a>
 				      <div class="dropdown-divider"></div>
 				      <a class="dropdown-item" href="#">Separated link</a -->
 				    </div>
@@ -90,14 +90,14 @@
       <!-- Project Two -->
       <div class="row">
         <div class="col-md-7">
-          <a href="#">
-            <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="">
+          <a href="btc.php">
+            <img class="img-fluid rounded mb-3 mb-md-0" src="btc.jpg" alt="">
           </a>
         </div>
         <div class="col-md-5">
-          <h3>Project Two</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit, esse totam tempore.</p>
-          <a class="btn btn-primary" href="#">View Project</a>
+          <h3>BTC to Euro and satoshi</h3>
+          <p>Real time converter from Bitcoin to Euro and satoshi, with real-time quotation from Bitpay exchange.  </p>
+          <a class="btn btn-primary" href="btc.php">Start</a>
         </div>
       </div>
       <!-- /.row -->
