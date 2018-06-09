@@ -1,5 +1,12 @@
 <?php
-	
+	define('_UTILS', true);
+	require_once('Table.class.php');
+   require_once("classGump.php");
+   
+   // initialize
+	$gu = new GUMP('en');
+   $main = new Main($gu);
+   $sdt = $main->dataControl();
 ?>
 
 <!DOCTYPE html>
@@ -53,29 +60,48 @@
       <h1 class="my-4">Table generator
       </h1>
      <div class="row">
-	    <div class="col-md-3"></div>
-	       <div class="col-md-6">
+	    <div class="col-md-2"></div>
+	       <div class="col-md-8">
 		    <form action="buildTable.php" method="post">
+		    
 		       <div class="form-group">
-				  <label for="example-text-input" class="col-2 col-form-label">Columns?</label>
-				  <input class="form-control" type="number" min="1" name="columns" id="columns">
+				  <label for="columns" class="col-2 col-form-label">Columns? *</label>
+				  <input class="form-control" type="number" name="columns" id="columns" min="1" required>
 				 </div>
+				 
 			    <div class="form-group">
-			    <label for="exampleTextarea">Table data</label>
-			    <p>( read the<a href="#" style="" id="about"> instructions</a> or load an <a href="#" style="" id="esempio"> example </a>)</p>
-			    <textarea rows="10" cols="50" name="mydata" class="form-control" id="mydata" rows="3"></textarea>
+			    <label for="exampleTextarea">Table data *</label>
+			    <p>( read the<a href="#" style="" id="guide1"> instructions</a> or load an <a href="#" style="" id="example1"> example </a>)</p>
+			    <textarea rows="10" cols="50" name="mydata" class="form-control" id="mydata" rows="3" required></textarea>
 			    </div>
+			    
+			    <div class="form-group">
+				  <label for="tabClass" class="col-2 col-form-label">Table class</label>
+				  <input class="form-control" type="text" name="tabClass" id="tabClass" placeholder="table">
+				 </div>
+				 
+				 <div class="form-group">
+				  <label for="padding" class="col-2 col-form-label">Cell padding</label>
+				  <input class="form-control" type="number" name="padding" id="padding" min="1">
+				 </div>
+				 
+				 <div class="form-group">
+				  <label for="replace" class="col-2 col-form-label">Replacer</label>
+				  <a href="#" style="" id="replacer"><img src="qm.png" alt="?"></a>
+				  <input class="form-control" type="text" name="replace" id="replace" placeholder="*">
+				 </div>
+				 
 			    <div class="form-check">
 				    <label class="form-check-label">
-				      <input type="checkbox" name="comp" class="form-check-input">
+				      <input type="checkbox" name="comp" id="comp" value="1" class="form-check-input">
 				      First cell empty&nbsp;<a href="#" style="" id="comparative"><img src="qm.png" alt="?"></a>
 				    </label>
 				  </div>
 				  <br />
-		    	 <button type="submit" name="submit" class="btn btn-primary">GO</button>
+		    	 <button type="submit" name="submit1" id="submit1" value="go" class="btn btn-primary">GO</button>
 		    </form>
 		    </div>
-	   <div class="col-md-3"></div>
+	   <div class="col-md-2"></div>
     </div>
     
     <hr>
@@ -93,7 +119,7 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+    <script src="my.js"></script>
   </body>
 
 </html>

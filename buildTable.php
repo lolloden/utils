@@ -1,9 +1,18 @@
 <?php
-
+	define('_UTILS', true);
 	require_once('Table.class.php');
+   require_once("classGump.php");
+   
+   // initialize
+	$gu = new GUMP('en');
+   $main = new Main($gu);
+   $sdt = $main->dataControl();
+   
 	$table = '';
-	if(isset($_POST['mydata']) && isset($_POST['columns'])) {
+	if(isset($sdt['mydata']) && isset($sdt['columns']) && !empty($sdt['mydata']) && !empty($sdt['columns'])) {
 	  
+	  $t = new Table($sdt['mydata'], $sdt['columns'], $sdt['comp'], $sdt['tabClass'], $sdt['replace']);
+	  $table = $t->buildTable();
 	}
 	
 ?>
@@ -56,33 +65,11 @@
     <div class="container">
 
       <!-- Page Heading -->
-      <h1 class="my-4">Table generator
+      <h1 class="my-4">Result
       </h1>
      <div class="row">
-	    <div class="col-md-3"></div>
-	       <div class="col-md-6">
-		    <form action="buildTable.php" method="post">
-		       <div class="form-group">
-				  <label for="example-text-input" class="col-2 col-form-label">Columns?</label>
-				  <input class="form-control" type="number" min="1" name="columns" id="columns">
-				 </div>
-			    <div class="form-group">
-			    <label for="exampleTextarea">Table data</label>
-			    <p>( read the<a href="#" style="" id="about"> instructions</a> or load an <a href="#" style="" id="esempio"> example </a>)</p>
-			    <textarea rows="10" cols="50" name="mydata" class="form-control" id="mydata" rows="3"></textarea>
-			    </div>
-			    <div class="form-check">
-				    <label class="form-check-label">
-				      <input type="checkbox" name="comp" class="form-check-input">
-				      First cell empty&nbsp;<a href="#" style="" id="comparative"><img src="qm.png" alt="?"></a>
-				    </label>
-				  </div>
-				  <br />
-		    	 <button type="submit" name="submit" class="btn btn-primary">GO</button>
-		    </form>
-		    </div>
-	   <div class="col-md-3"></div>
-    </div>
+	    <?php echo $table; ?>
+     </div>
     
     <hr>
     </div>
@@ -99,7 +86,7 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+    <script src="my.js"></script>
   </body>
 
 </html>

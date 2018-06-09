@@ -1,6 +1,12 @@
 <?php
-
-
+	define('_UTILS', true);
+	require_once('Main.class.php');
+   require_once("classGump.php");
+   
+   // initialize
+	$gu = new GUMP('en');
+   $main = new Main($gu);
+   $sdt = $main->dataControl();
 ?>
 
 <!DOCTYPE html>
@@ -172,7 +178,7 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  </body>
+    <script src="my.js"></script>
+    </body>
 
 </html>

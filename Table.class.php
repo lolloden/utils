@@ -1,7 +1,12 @@
 <?php
 
+   if(!defined("_UTILS")) {
+	   die('Error. Direct access not allowed.');
+	}
+	
+	require_once("Main.class.php");
 
-	class Table {
+	class Table extends Main {
 		
 		private $mystring, $cols, $padd, $repl, $comp, $cssClass;
 		
