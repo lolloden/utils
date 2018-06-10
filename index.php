@@ -56,7 +56,7 @@
 				    </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+              <a data-toggle="modal" data-target="#myModal" class="nav-link" href="#">Contact</a>
             </li>
           </ul>
         </div>
@@ -65,7 +65,33 @@
 
     <!-- Page Content -->
     <div class="container">
-
+     
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Please like or share</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="fb-like" data-href="http://functions.tradepost.it/index.php" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  
       <!-- Page Heading -->
       <h1 class="my-4">Browse our utilities
       </h1>

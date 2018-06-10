@@ -45,7 +45,7 @@
               </a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="table.php">BTC to Euro and satoshi</a>
+              <a class="nav-link" href="btc.php">BTC to Euro and satoshi</a>
               <span class="sr-only">(current)</span>
             </li>
           </ul>
@@ -63,9 +63,17 @@
 	    <div class="col-md-2"></div>
 	       <div class="col-md-8">
 		     <div class="container-fluid" style="padding: 60px 0 150px 0;">
-               <div class="alert alert-success" role="alert" style="margin: 40px 0;">
-					  <?php echo '1 bitcoin = € <b>' . $_SESSION['rate'] . '</b> EUR (source: Bitpay on ' . $btc->mytime . ')'; ?>
-					</div>
+               <?php
+                    if(isset($_SESSION['rate'])) {
+                        echo '<div class="alert alert-success" role="alert" style="margin: 40px 0;">
+										  1 bitcoin = € <b>' . $_SESSION['rate'] . '</b> EUR (source: Bitpay on ' . $btc->mytime . ')' .
+										'</div>';
+                    } else {
+                        echo '<div class="alert alert-danger" role="alert" style="margin: 40px 0;">
+										  Sorry we could not fetch exchange rate. Please retry later. Thank you.
+										</div>';
+                      }
+               ?>
                <form>
 					  <div class="form-row">
 					    <div class="col">
